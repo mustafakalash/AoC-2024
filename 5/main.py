@@ -28,8 +28,8 @@ class PageRule:
         return True, None, None
     
     @staticmethod
-    def sort(pages):
-        correct, page, before = PageRule.is_correct(pages)
+    def sort(pages, page, before):
+        correct = False
         while not correct:
             pages.remove(page)
             pages.insert(pages.index(before), page)
@@ -52,9 +52,10 @@ for rule in rules:
 p1_sum = p2_sum = 0
 for page_list in page_lists:
     pages = page_list.strip().split(",")
-    if PageRule.is_correct(pages)[0]:
+    correct, page, before = PageRule.is_correct(pages)
+    if correct:
         p1_sum += get_middle(pages)
     else:
-        p2_sum += get_middle(PageRule.sort(pages))
+        p2_sum += get_middle(PageRule.sort(pages, page, before))
 
 print(f"Part 1: {p1_sum}\nPart 2: {p2_sum}")
