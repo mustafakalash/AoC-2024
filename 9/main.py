@@ -73,37 +73,28 @@ class Filesystem:
         return True
     
     def compact(self, fragment = True):
-        print(self)
-
         right = len(self.chunks) - 1
         while right >= 0:
             right_chunk = self.chunks[right]
             if right_chunk.id is None:
                 right -= 1
                 continue
-            print(right_chunk.id)
 
             left = 0
             while left < len(self.chunks) - 1 and (self.chunks[left].id is not None or \
               (not fragment and self.chunks[left].size < right_chunk.size)):
                 left += 1
 
-            if left == len(self.chunks) - 1:
+            if left >= right:
                 right -= 1
                 continue
 
-            if left >= right:
-                break
-
             left_chunk = self.chunks[left]
             self.swap(left_chunk, right_chunk, fragment)
-
-            print(self)
             
         return self.checksum()
 
 fs = Filesystem("9/input")
 print(fs.compact())
-print("=" * len(str(fs)))
 fs = Filesystem("9/input")
 print(fs.compact(False))
