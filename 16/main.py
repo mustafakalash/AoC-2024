@@ -1,8 +1,9 @@
 from enum import Enum
 import math
 import sys
+import heapq
 
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(100000)
 
 class TileType(Enum):
     EMPTY = "."
@@ -78,7 +79,6 @@ class Maze:
         self.tiles = []
         self.start = None
         self.end = None
-        self.best_g = None
         self.paths = []
 
         with open(filename) as f:
@@ -100,7 +100,7 @@ class Maze:
             return None
         
     def get_score(self):
-        return min(path[0].g for path in self.paths)
+        return self.paths[0][0].g if len(self.paths) else math.inf
         
     def find_path(self, current_node = None, closed_list = set()):
         if current_node is None:
@@ -109,10 +109,17 @@ class Maze:
         closed_list.add(current_node.tile)
 
         if current_node.tile == self.end:
-            self.best_g = min(current_node.g, self.best_g) if self.best_g is not None else current_node.g
+            print("Found path with score", current_node.g)
+            if len(self.paths):
+                if current_node.g > self.get_score():
+                    return
+                elif current_node.g < self.get_score():
+                    self.paths = []
+
             self.paths.append(self.build_path(current_node))
             return
 
+        open_list = []
         for exit in current_node.tile.get_exits():
             if exit in closed_list:
                 continue
@@ -121,10 +128,15 @@ class Maze:
             rotations = current_node.facing.rotations_to(direction) * Maze.ROTATION_COST
             g = current_node.g + rotations + Maze.MOVE_COST
 
-            if self.best_g is not None and g > self.best_g:
+            if g > self.get_score():
                 continue
-            
+
             self.find_path(Node(exit, g, current_node, direction), closed_list.copy())
+            heapq.heappush(open_list, Node(exit, g, current_node, direction))
+        
+        while open_list:
+            break
+            self.find_path(heapq.heappop(open_list), closed_list.copy())
 
     def build_path(self, node):
         path = []
@@ -149,10 +161,14 @@ class Maze:
         paths = {}
         for path in self.get_best_paths():
             for node in path:
-                if node.tile in paths.keys() and paths[node.tile] != node.facing.get_symbol():
-                    paths[node.tile] = "X"
+                pre = "\033[1m\033[41m"
+                post = "\033[0m"
+                if node.tile in paths.keys() and paths[node.tile] != pre + node.facing.get_symbol() + post:
+                    symbol = "X"
                 else:
-                    paths[node.tile] = node.facing.get_symbol()
+                    symbol = node.facing.get_symbol()
+                
+                paths[node.tile] = pre + symbol + post
 
         result = ""
         for y in self.tiles:
