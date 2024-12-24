@@ -154,7 +154,7 @@ class Position:
 def move_caret_up(lines = 1):
     print("\033[F" * lines, end = "")
 
-map = Map("6/input")
+map = Map("6/input.txt")
 map_copy = deepcopy(map)
 _, visited = map_copy.run(True)
 print("=" * map.width)

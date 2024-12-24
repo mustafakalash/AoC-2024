@@ -203,6 +203,6 @@ class Device:
         
         return self.get_number(Device.OUTPUT_WIRES)
     
-device = Device("24/input")
+device = Device("24/input.txt")
 print(device.run())
 print(device.find_bad_outputs())

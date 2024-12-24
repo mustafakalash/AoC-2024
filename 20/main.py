@@ -191,7 +191,7 @@ class Track:
 def red(text):
     return f"\033[91m{text}\033[0m"
 
-track = Track("20/input")
+track = Track("20/input.txt")
 track.find_cheats(2)
 track.count_cheats()
 track.find_cheats(20)

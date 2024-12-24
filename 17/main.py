@@ -114,5 +114,5 @@ class Computer:
 
         return True
     
-computer = Computer("17/input")
+computer = Computer("17/input.txt")
 print(computer.run(), computer.find_copy())

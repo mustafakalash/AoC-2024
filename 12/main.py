@@ -116,6 +116,6 @@ class Garden:
 
         return sum([region.get_area() * region.get_perimeter() for region in self.regions])
 
-garden = Garden("12/input")
+garden = Garden("12/input.txt")
 print(garden.get_price())
 print(garden.get_price(True))

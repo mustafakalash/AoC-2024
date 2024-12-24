@@ -116,6 +116,6 @@ class Test:
         assert sequence == cls.PART_2_TESTS["sequence"], f"Part 2 test failed, expected {cls.PART_2_TESTS['sequence']}, got {sequence}"
 
 Test.run()
-market = Market().from_file("22/input")
+market = Market().from_file("22/input.txt")
 print(sum(market.get_nths(Market.GENERATE_AMT)))
 print(market.find_sequence(Market.GENERATE_AMT))

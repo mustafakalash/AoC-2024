@@ -40,7 +40,7 @@ class PageRule:
 def get_middle(pages):
     return int(pages[len(pages)//2])
 
-with open("5/input") as f:
+with open("5/input.txt") as f:
     lines = f.readlines()
 
 i = lines.index("\n")

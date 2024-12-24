@@ -128,8 +128,8 @@ class Warehouse:
     def __str__(self):
         return "\n".join(["".join([str(tile) for tile in row]) for row in self.tiles])
     
-warehouse1 = Warehouse("15/input")
-warehouse2 = Warehouse("15/input", True)
+warehouse1 = Warehouse("15/input.txt")
+warehouse2 = Warehouse("15/input.txt", True)
 
 warehouse1.run()
 print(warehouse2)

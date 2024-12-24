@@ -31,5 +31,5 @@ class Towels:
 
         return usable_designs, total_patterns
     
-towels = Towels("19/input")
+towels = Towels("19/input.txt")
 print(towels.make_designs())

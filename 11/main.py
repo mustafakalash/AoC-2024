@@ -27,6 +27,6 @@ class Line:
             right = int(val_str[mid:])
             return self.blink(times - 1, left) + self.blink(times - 1, right)
 
-line = Line("11/input")
+line = Line("11/input.txt")
 print("Part 1:", line.blink(25), "stones")
 print("Part 2:", line.blink(75), "stones")

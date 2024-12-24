@@ -1,6 +1,6 @@
 import networkx as nx
 
-computers = nx.read_edgelist("23/input", delimiter="-", comments = "\r")
+computers = nx.read_edgelist("23/input.txt", delimiter="-", comments = "\r")
 
 parties = list(nx.enumerate_all_cliques(computers))
 chiefs_parties = 0

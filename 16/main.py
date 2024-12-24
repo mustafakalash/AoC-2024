@@ -180,7 +180,7 @@ class Maze:
             result += "\n"
         return result
 
-maze = Maze("16/input")
+maze = Maze("16/input.txt")
 maze.find_path()
 print(maze)
 print(maze.get_score(), maze.best_path_nodes())

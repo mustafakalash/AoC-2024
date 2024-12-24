@@ -90,7 +90,7 @@ class Grid:
     def __str__(self):
         return self.get_grid() 
     
-grid = Grid("14/input", 101, 103)
+grid = Grid("14/input.txt", 101, 103)
 grid.simulate(100)
 safety = grid.calculate_safety()
 grid.simulate(-100)

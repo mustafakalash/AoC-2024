@@ -19,7 +19,7 @@ def test_possibilities(possibilities, operands, test):
             
     return 0
 
-with open("7/input") as f:
+with open("7/input.txt") as f:
     p1_calibration_sum = 0
     p2_calibration_sum = 0
     for line in f:

@@ -115,6 +115,6 @@ class Map:
     def __str__(self):
         return "\n".join("".join(str(pos) for pos in row) for row in self.map)
     
-m = Map("10/input")
+m = Map("10/input.txt")
 print(m)
 print(m.run())

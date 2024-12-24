@@ -56,6 +56,6 @@ class Arcade:
     def calculate_costs(self, error_fixed = False):
         return sum([machine.calculate_cost(error_fixed) for machine in self.machines])
     
-arcade = Arcade("13/input")
+arcade = Arcade("13/input.txt")
 print(arcade.calculate_costs())
 print(arcade.calculate_costs(True))

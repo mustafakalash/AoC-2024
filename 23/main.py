@@ -65,5 +65,5 @@ class Network:
         
         return chiefs_parties, ",".join(sorted([str(computer) for computer in max(parties, key=len)]))
     
-network = Network("23/input")
+network = Network("23/input.txt")
 print(network.find_chiefs_parties())

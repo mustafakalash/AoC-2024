@@ -121,4 +121,4 @@ class Solution:
         print(Solution.p2_word_search)
         print(f"X-MAS found: {Solution.p2_count}")
 
-Solution.solve("4/input")
+Solution.solve("4/input.txt")

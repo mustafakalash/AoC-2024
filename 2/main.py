@@ -26,7 +26,7 @@ def is_safe(report, dampened = False):
 
     return safe
 
-with open("2/input") as f:
+with open("2/input.txt") as f:
     reports = f.readlines()
     
     safe_reports = 0

@@ -133,7 +133,7 @@ class Region:
                 exit.parent = current_coord
                 heapq.heappush(open_list, exit)
 
-region = Region(71, "18/input")
+region = Region(71, "18/input.txt")
 region.simulate_fall(1024)
 region.find_path()
 print(region)

@@ -95,7 +95,7 @@ class Map:
     def __str__(self):
         return "\n".join(["".join([str(node) for node in row]) for row in self.nodes])
     
-map = Map("8/input")
+map = Map("8/input.txt")
 map.run()
 print(map)
 print(map.count_antinodes())

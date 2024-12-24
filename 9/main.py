@@ -94,7 +94,7 @@ class Filesystem:
             
         return self.checksum()
 
-fs = Filesystem("9/input")
+fs = Filesystem("9/input.txt")
 print(fs.compact())
-fs = Filesystem("9/input")
+fs = Filesystem("9/input.txt")
 print(fs.compact(False))

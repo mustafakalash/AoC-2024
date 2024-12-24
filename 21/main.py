@@ -215,6 +215,6 @@ class Test:
         assert keypad.total_complexity(2) == cls.FULL_RESULTS["complexity"]
 
 Test.run()
-keypad = MyKeypad("21/input")
+keypad = MyKeypad("21/input.txt")
 print(keypad.total_complexity(2))
 print(keypad.total_complexity(25))

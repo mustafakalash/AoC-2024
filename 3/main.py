@@ -1,6 +1,6 @@
 import re
 
-with open("3/input") as f:
+with open("3/input.txt") as f:
     memory = f.read()
     instrs = re.findall(r"mul\((\d{1,3}),(\d{1,3})\)|(do\(\))|(don't\(\))", memory)
 
