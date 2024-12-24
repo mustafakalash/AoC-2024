@@ -111,6 +111,7 @@ class Device:
         for wire in self.wires:
             if not wire.is_input():
                 wire.value = None
+        self.ran = False
 
     def find_instruction_by_output(self, output):
         for instruction in self.instructions:
